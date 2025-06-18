@@ -1,8 +1,8 @@
-const HEYGEN_API_KEY = process.env.HEYGEN_API_KEY;
+const NEXT_PUBLIC_HEYGEN_API_KEY = process.env.NEXT_PUBLIC_HEYGEN_API_KEY;
 
 export async function POST() {
   try {
-    if (!HEYGEN_API_KEY) {
+    if (!NEXT_PUBLIC_HEYGEN_API_KEY) {
       throw new Error("API key is missing from .env");
     }
     const baseApiUrl = process.env.NEXT_PUBLIC_BASE_API_URL;
@@ -10,7 +10,7 @@ export async function POST() {
     const res = await fetch(`${baseApiUrl}/v1/streaming.create_token`, {
       method: "POST",
       headers: {
-        "x-api-key": HEYGEN_API_KEY,
+        "x-api-key": NEXT_PUBLIC_HEYGEN_API_KEY,
       },
     });
 
